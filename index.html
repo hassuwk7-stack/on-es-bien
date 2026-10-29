@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ON EST BIEN</title>
+<style>
+:root{--gold:#d8b66a;--bg:#101010;--card:#1c1c1c;--text:#f8f5ee}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif;line-height:1.6}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 7%;border-bottom:1px solid #443821}
+.logo{font-size:23px;font-weight:bold;letter-spacing:2px;color:var(--gold)}
+nav a{color:var(--text);text-decoration:none;margin-left:18px}
+.hero{text-align:center;padding:100px 7%;background:radial-gradient(ellipse,#382b18,#101010 70%)}
+.hero p{color:var(--gold);letter-spacing:2px}
+h1{font-size:clamp(38px,7vw,68px);line-height:1.1}
+h1 span,h2 span{color:var(--gold)}
+.intro{max-width:550px;margin:20px auto 30px;color:#ddd}
+.btn{display:inline-block;background:var(--gold);color:#17130c;padding:13px 24px;text-decoration:none;border:0;border-radius:3px;font-weight:bold;cursor:pointer}
+section{padding:65px 8%}
+.heading{text-align:center;margin-bottom:35px}
+.heading p{color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-size:12px}
+h2{font-size:32px}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.service{padding:25px;background:var(--card);border:1px solid #443821;border-radius:5px}
+.service h3{color:var(--gold)}
+.service p{color:#ccc}
+.booking{max-width:620px;margin:auto;padding:28px;background:var(--card);border:1px solid #443821}
+label{display:block;margin:14px 0 6px}
+input,select,textarea{width:100%;padding:12px;background:#111;color:white;border:1px solid #55462e;border-radius:3px;font:inherit}
+.booking button{width:100%;margin-top:20px}
+#message{color:var(--gold)}
+footer{text-align:center;padding:25px;color:#aaa;border-top:1px solid #443821}
+@media(max-width:550px){header{flex-direction:column;gap:12px}nav a{margin:0 7px}section{padding:45px 6%}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">ON EST BIEN.</div>
+<nav><a href="#accueil">Accueil</a><a href="#services">Services</a><a href="#reservation">Réservation</a></nav>
+</header>
+<main>
+<section class="hero" id="accueil">
+<p>BIENVENUE CHEZ NOUS</p>
+<h1>Votre moment.<br><span>Votre bien-être.</span></h1>
+<div class="intro">Découvrez nos services et prenez le temps de vous faire plaisir.</div>
+<a class="btn" href="#reservation">Prendre rendez-vous</a>
+</section>
+<section id="services">
+<div class="heading"><p>Découvrez</p><h2>Nos <span>services</span></h2>Choisissez le service qui vous convient.</div>
+<div class="services">
+<article class="service"><h3>Service 01</h3><p>Une expérience pensée pour votre confort.</p></article>
+<article class="service"><h3>Service 02</h3><p>Un accueil chaleureux et un service de qualité.</p></article>
+<article class="service"><h3>Service 03</h3><p>Un moment rien que pour vous.</p></article>
+</div>
+</section>
+<section id="reservation">
+<div class="heading"><p>À vous de choisir</p><h2>Demande de <span>réservation</span></h2></div>
+<form class="booking" id="bookingForm">
+<label for="name">Nom complet</label><input id="name" name="name" autocomplete="name" required>
+<label for="email">Adresse e-mail</label><input id="email" name="email" type="email" autocomplete="email" required>
+<label for="service">Service souhaité</label>
+<select id="service" name="service" required><option value="">Choisir un service</option><option>Service 01</option><option>Service 02</option><option>Service 03</option></select>
+<label for="date">Date souhaitée</label><input id="date" name="date" type="date" required>
+<label for="details">Informations complémentaires</label><textarea id="details" name="details" rows="3"></textarea>
+<button class="btn" type="submit">Préparer ma demande</button>
+<p id="message" role="status"></p>
+</form>
+</section>
+</main>
+<footer>© <span id="year"></span> ON EST BIEN. Tous droits réservés.</footer>
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+document.getElementById("bookingForm").addEventListener("submit",function(event){
+event.preventDefault();
+document.getElementById("message").textContent="Votre formulaire fonctionne, mais la réservation n'est pas encore envoyée. La connexion à la base de données reste à faire.";
+});
+</script>
+</body>
+</html>
 
