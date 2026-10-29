@@ -82,22 +82,39 @@ footer{text-align:center;padding:25px;color:#aaa;border-top:1px solid #443821}
 <section id="reservation">
 <div class="heading"><p>À vous de choisir</p><h2>Demande de <span>réservation</span></h2></div>
 <form class="booking" id="bookingForm">
-<label for="name">Nom complet</label><input id="name" name="name" autocomplete="name" required>
-<label for="email">Adresse e-mail</label><input id="email" name="email" type="email" autocomplete="email" required>
-<label for="service">Service souhaité</label>
 
-<select id="service" name="service" required>
-  <option value="">Choisir un service</option>
-  <option value="4">Coupe homme — 20 €</option>
-  <option value="3">Dégradé — 15 €</option>
-  <option value="1">Taille de barbe — 10 €</option>
-  <option value="2">Coupe enfant — 15 €</option>
-</select>
+<form class="booking" id="bookingForm">
+  <label for="name">Nom complet</label>
+  <input id="name" name="name" autocomplete="name" required>
 
-<label for="date">Date souhaitée</label><input id="date" name="date" type="date" required>
-<label for="details">Informations complémentaires</label><textarea id="details" name="details" rows="3"></textarea>
-<button class="btn" type="submit">Préparer ma demande</button>
-<p id="message" role="status"></p>
+  <label for="email">Adresse e-mail</label>
+  <input id="email" name="email" type="email" autocomplete="email" required>
+
+  <label for="phone">Numéro de téléphone</label>
+  <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+
+  <label for="service">Service souhaité</label>
+  <select id="service" name="service" required>
+    <option value="">Choisir un service</option>
+    <option value="4">Coupe homme — 20 €</option>
+    <option value="3">Dégradé — 15 €</option>
+    <option value="1">Taille de barbe — 10 €</option>
+    <option value="2">Coupe enfant — 15 €</option>
+  </select>
+
+  <label for="date">Date souhaitée</label>
+  <input id="date" name="date" type="date" required>
+
+  <label for="time">Heure souhaitée</label>
+  <input id="time" name="time" type="time" min="10:00" max="17:45" required>
+
+  <label for="details">Informations complémentaires</label>
+  <textarea id="details" name="details" rows="3"></textarea>
+
+  <button class="btn" type="submit">Demander un rendez-vous</button>
+  <p id="message" role="status"></p>
+</form>
+
 </form>
 </section>
 </main>
