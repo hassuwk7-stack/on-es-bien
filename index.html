@@ -4,214 +4,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hassu | Coiffure & Barbe</title>
+<title>ON EST BIEN | Coiffure & Barbe</title>
 
 <style>
 :root {
-  --gold: #d8b66a;
-  --bg: #101010;
-  --card: #1c1c1c;
-  --text: #f8f5ee;
+  --gold:#c9a96e;
+  --gold-light:#e6d2a8;
+  --bg:#0b0b0b;
+  --surface:#151515;
+  --text:#f7f4ee;
+  --muted:#aaa49a;
+  --line:rgba(201,169,110,.24);
+  --radius:18px;
+  --shadow:0 22px 60px rgba(0,0,0,.38);
 }
-
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.65
 }
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
+header{
+  position:sticky;top:0;z-index:10;display:flex;
+  justify-content:space-between;align-items:center;
+  padding:17px 7%;background:rgba(11,11,11,.9);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line)
 }
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 22px 7%;
-  border-bottom: 1px solid #443821;
+.logo{font-size:21px;font-weight:850;letter-spacing:3px;color:var(--gold)}
+nav{display:flex;gap:28px}
+nav a{color:#eee9df;text-decoration:none;font-size:14px;font-weight:600}
+nav a:hover{color:var(--gold-light)}
+.hero{
+  position:relative;overflow:hidden;text-align:center;
+  padding:clamp(90px,13vw,155px) 7% 125px;
+  background:radial-gradient(ellipse at 50% 5%,rgba(166,126,61,.28),transparent 55%),
+  linear-gradient(180deg,#17130e 0%,#0b0b0b 100%)
 }
-
-.logo {
-  font-size: 23px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: var(--gold);
+.hero::before,.hero::after{
+  content:"";position:absolute;width:300px;height:300px;
+  border:1px solid rgba(201,169,110,.12);border-radius:50%;
+  pointer-events:none
 }
-
-nav a {
-  color: var(--text);
-  text-decoration: none;
-  margin-left: 18px;
+.hero::before{top:-190px;left:-120px}
+.hero::after{bottom:-220px;right:-100px;width:420px;height:420px}
+.hero>p,.heading>p{
+  color:var(--gold);letter-spacing:3px;text-transform:uppercase;
+  font-size:11px;font-weight:800
 }
-
-.hero {
-  text-align: center;
-  padding: 100px 7%;
-  background: radial-gradient(ellipse, #382b18, #101010 70%);
+h1{font-size:clamp(42px,7vw,76px);line-height:1.06;letter-spacing:-2px;margin:18px 0}
+h1 span,h2 span{color:var(--gold)}
+.intro{max-width:570px;margin:20px auto 34px;color:#c9c3b8;font-size:17px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#e1c58e,#b58e4f);
+  color:#17130c;padding:14px 26px;text-decoration:none;
+  border:0;border-radius:999px;font-weight:800;cursor:pointer;
+  box-shadow:0 10px 28px rgba(201,169,110,.18);
+  transition:transform .2s ease,filter .2s ease
 }
-
-.hero > p {
-  color: var(--gold);
-  letter-spacing: 2px;
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn:disabled{opacity:.65;cursor:wait;transform:none}
+section{padding:82px 8%;scroll-margin-top:85px}
+.heading{text-align:center;margin:0 auto 42px;max-width:680px}
+.heading h2{margin:8px 0 10px}
+.heading>p{margin-bottom:7px}
+h2{font-size:clamp(29px,4vw,40px);line-height:1.2;letter-spacing:-.7px}
+.services{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;max-width:1100px;margin:0 auto
 }
-
-h1 {
-  font-size: clamp(38px, 7vw, 68px);
-  line-height: 1.1;
+.service{
+  padding:30px 26px;min-height:205px;
+  background:linear-gradient(145deg,#1d1c19,#121212);
+  border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:0 12px 35px rgba(0,0,0,.16);
+  transition:transform .25s ease,border-color .25s ease
 }
-
-h1 span, h2 span {
-  color: var(--gold);
+.service:hover{transform:translateY(-5px);border-color:rgba(201,169,110,.65)}
+.service h3{color:var(--gold-light);font-size:19px;margin:0 0 10px}
+.service p{color:var(--muted);margin:8px 0}
+.service p:last-child{color:var(--text);font-weight:800}
+#reservation{background:linear-gradient(180deg,#101010,#14120f)}
+.booking{
+  max-width:700px;margin:auto;padding:clamp(24px,5vw,42px);
+  background:linear-gradient(145deg,#1c1b19,#121212);
+  border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);
+  display:grid;grid-template-columns:1fr 1fr;column-gap:18px
 }
-
-.intro {
-  max-width: 550px;
-  margin: 20px auto 30px;
-  color: #ddd;
+.booking label{display:block;margin:13px 0 7px;color:#e7dfd1;font-size:13px;font-weight:700}
+.booking input,.booking select,.booking textarea{
+  width:100%;padding:14px 15px;background:#0d0d0d;color:white;
+  border:1px solid #39342b;border-radius:11px;font:inherit;outline:none
 }
-
-.btn {
-  display: inline-block;
-  background: var(--gold);
-  color: #17130c;
-  padding: 13px 24px;
-  text-decoration: none;
-  border: 0;
-  border-radius: 3px;
-  font-weight: bold;
-  cursor: pointer;
+.booking input:focus,.booking select:focus,.booking textarea:focus{
+  border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,110,.12)
 }
-
-section {
-  padding: 65px 8%;
+.booking textarea{resize:vertical;min-height:90px}
+.booking label[for="details"],.booking #details,
+.booking button,.booking #message{grid-column:1/-1}
+.booking button{width:100%;margin-top:22px;min-height:50px}
+#message{color:var(--gold-light);overflow-wrap:anywhere;text-align:center;margin-bottom:0}
+.calendar-box,.time-box{
+  grid-column:1/-1;padding:17px;margin-top:2px;
+  background:#0d0d0d;border:1px solid #39342b;border-radius:14px
 }
-
-.heading {
-  text-align: center;
-  margin-bottom: 35px;
+.calendar-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.calendar-top strong{color:var(--gold-light);text-transform:capitalize}
+.calendar-nav{
+  width:38px;height:38px;border:1px solid var(--line);border-radius:50%;
+  background:#1c1b19;color:var(--gold-light);font-size:25px;cursor:pointer
 }
-
-.heading p {
-  color: var(--gold);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 12px;
+.calendar-nav:disabled{opacity:.3;cursor:not-allowed}
+.calendar-weekdays,.calendar-days{
+  display:grid;grid-template-columns:repeat(7,minmax(0,1fr));
+  gap:7px;text-align:center
 }
-
-h2 {
-  font-size: 32px;
+.calendar-weekdays span{color:var(--muted);font-size:12px;font-weight:700;padding-bottom:7px}
+.calendar-day{
+  aspect-ratio:1;border:1px solid transparent;border-radius:10px;
+  background:#1b1a18;color:var(--text);font:inherit;cursor:pointer
 }
-
-.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 18px;
+.calendar-day:hover:not(:disabled),.calendar-day.selected{
+  background:var(--gold);color:#17130c;font-weight:900
 }
-
-.service {
-  padding: 25px;
-  background: var(--card);
-  border: 1px solid #443821;
-  border-radius: 5px;
+.calendar-day:disabled{opacity:.22;cursor:not-allowed}
+.calendar-day.empty{visibility:hidden}
+.selection-info{color:var(--muted);font-size:13px;margin:13px 0 0}
+.time-slots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.time-slot{
+  padding:11px 5px;border:1px solid #39342b;border-radius:10px;
+  background:#1b1a18;color:var(--text);font:inherit;font-size:14px;cursor:pointer
 }
-
-.service h3 {
-  color: var(--gold);
+.time-slot:hover:not(:disabled),.time-slot.selected{
+  background:var(--gold);color:#17130c;border-color:var(--gold);font-weight:900
 }
-
-.service p {
-  color: #ccc;
+.time-slot:disabled{opacity:.25;cursor:not-allowed}
+.booking .calendar-box,.booking .time-box{width:100%}
+@media(max-width:420px){
+  .time-slots{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .calendar-weekdays,.calendar-days{gap:4px}
+  .calendar-day{border-radius:7px}
 }
-
-.booking {
-  max-width: 620px;
-  margin: auto;
-  padding: 28px;
-  background: var(--card);
-  border: 1px solid #443821;
+footer{
+  text-align:center;padding:28px 20px;color:#8e887e;
+  border-top:1px solid var(--line);font-size:13px
 }
-
-label {
-  display: block;
-  margin: 14px 0 6px;
+.whatsapp{
+  display:flex;width:fit-content;max-width:90%;margin:34px auto;
+  padding:14px 24px;background:#183d2a;color:#eaffef;
+  text-decoration:none;font-weight:800;border:1px solid #2d6847;
+  border-radius:999px;text-align:center
 }
-
-input, select, textarea {
-  width: 100%;
-  padding: 12px;
-  background: #111;
-  color: white;
-  border: 1px solid #55462e;
-  border-radius: 3px;
-  font: inherit;
+.whatsapp:hover{transform:translateY(-2px);background:#205437}
+.hours{
+  max-width:650px;margin:55px auto 75px;padding:30px 22px;
+  text-align:center;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--radius)
 }
-
-.booking button {
-  width: 100%;
-  margin-top: 20px;
-}
-
-#message {
-  color: var(--gold);
-  overflow-wrap: anywhere;
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #aaa;
-  border-top: 1px solid #443821;
-}
-
-.whatsapp {
-  display: block;
-  width: fit-content;
-  max-width: 90%;
-  margin: 30px auto;
-  padding: 14px 24px;
-  background: #d4af37;
-  color: #111;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.hours {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 25px;
-  text-align: center;
-  border: 1px solid var(--gold);
-  border-radius: 12px;
-}
-
-.hours h2 {
-  color: var(--gold);
-}
-
-@media (max-width: 550px) {
-  header {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  nav a {
-    margin: 0 7px;
-  }
-
-  section {
-    padding: 45px 6%;
-  }
+.hours h2{color:var(--gold);margin-top:0}
+.hours p{color:#d2ccc1;margin:5px}
+@media(max-width:650px){
+  header{padding:15px 5%;flex-direction:column;gap:12px}
+  nav{gap:18px}
+  nav a{font-size:13px}
+  section{padding:62px 6%}
+  .hero{padding:88px 6% 100px}
+  .booking{grid-template-columns:1fr;padding:23px 19px}
+  .booking label[for="details"],.booking #details,
+  .booking button,.booking #message{grid-column:auto}
 }
 </style>
 </head>
 
 <body>
-
 <header>
   <div class="logo">ON EST BIEN.</div>
   <nav>
@@ -222,12 +188,11 @@ footer {
 </header>
 
 <main>
-
 <section class="hero" id="accueil">
   <p>BIENVENUE CHEZ NOUS</p>
-  <h1>Aicha.<br><span>je t'aime.</span></h1>
+  <h1>Votre style.<br><span>Notre savoir-faire.</span></h1>
   <div class="intro">
-    Découvrez nos services et prenez le temps de vous faire plaisir.
+    L’art de la coupe et du détail. Profitez d’un service soigné dans une ambiance accueillante.
   </div>
   <a class="btn" href="#reservation">Prendre rendez-vous</a>
 </section>
@@ -238,26 +203,22 @@ footer {
     <h2>Nos <span>services</span></h2>
     Choisissez le service qui vous convient.
   </div>
-
   <div class="services">
     <article class="service">
       <h3>Coupe homme</h3>
       <p>Une coupe soignée et adaptée à ton style.</p>
       <p><strong>30 minutes · 20 €</strong></p>
     </article>
-
     <article class="service">
       <h3>Dégradé</h3>
       <p>Un dégradé précis pour un look impeccable.</p>
       <p><strong>35 minutes · 15 €</strong></p>
     </article>
-
     <article class="service">
       <h3>Taille de barbe</h3>
       <p>Une barbe entretenue avec précision.</p>
       <p><strong>15 minutes · 10 €</strong></p>
     </article>
-
     <article class="service">
       <h3>Coupe enfant</h3>
       <p>Une coupe adaptée aux plus jeunes.</p>
@@ -277,12 +238,10 @@ footer {
     <input id="name" name="name" autocomplete="name" required>
 
     <label for="email">Adresse e-mail</label>
-    <input id="email" name="email" type="email"
-           autocomplete="email" required>
+    <input id="email" name="email" type="email" autocomplete="email" required>
 
     <label for="phone">Numéro de téléphone</label>
-    <input id="phone" name="phone" type="tel"
-           autocomplete="tel" required>
+    <input id="phone" name="phone" type="tel" autocomplete="tel" required>
 
     <label for="service">Service souhaité</label>
     <select id="service" name="service" required>
@@ -293,12 +252,28 @@ footer {
       <option value="2">Coupe enfant — 15 €</option>
     </select>
 
-    <label for="date">Date souhaitée</label>
-    <input id="date" name="date" type="date" required>
+    <label>Date souhaitée</label>
+    <div class="calendar-box">
+      <div class="calendar-top">
+        <button type="button" class="calendar-nav" id="prevMonth" aria-label="Mois précédent">‹</button>
+        <strong id="calendarMonth"></strong>
+        <button type="button" class="calendar-nav" id="nextMonth" aria-label="Mois suivant">›</button>
+      </div>
+      <div class="calendar-weekdays">
+        <span>Lun</span><span>Mar</span><span>Mer</span>
+        <span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span>
+      </div>
+      <div class="calendar-days" id="calendarDays"></div>
+      <p class="selection-info" id="dateSelectionInfo">Choisissez une date dans le calendrier.</p>
+    </div>
+    <input id="date" name="date" type="hidden">
 
-    <label for="time">Heure souhaitée</label>
-    <input id="time" name="time" type="time"
-           min="10:00" max="17:45" required>
+    <label>Heure du rendez-vous</label>
+    <div class="time-box">
+      <p class="selection-info" id="timeSelectionInfo">Choisissez d’abord un service et une date.</p>
+      <div class="time-slots" id="timeSlots"></div>
+    </div>
+    <input id="time" name="time" type="hidden">
 
     <label for="details">Informations complémentaires</label>
     <textarea id="details" name="details" rows="3"></textarea>
@@ -306,21 +281,16 @@ footer {
     <button class="btn" id="submitButton" type="submit">
       Demander un rendez-vous
     </button>
-
     <p id="message" role="status" aria-live="polite"></p>
   </form>
 </section>
-
 </main>
 
 <footer>
   © <span id="year"></span> ON EST BIEN. Tous droits réservés.
 </footer>
 
-<a class="whatsapp"
-   href="https://wa.me/32471578127"
-   target="_blank"
-   rel="noopener noreferrer">
+<a class="whatsapp" href="https://wa.me/32471578127" target="_blank" rel="noopener noreferrer">
   Contacter Hassu sur WhatsApp
 </a>
 
@@ -333,14 +303,10 @@ footer {
 </section>
 
 <script>
-document.getElementById("year").textContent =
-  new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 
-const SUPABASE_URL =
-  "https://hmutkvvmvhnqqeipglid.supabase.co";
-
-const SUPABASE_KEY =
-  "sb_publishable_NGXi9ouXa2_lzt6aVookvw_RJFAZnkb";
+const SUPABASE_URL = "https://hmutkvvmvhnqqeipglid.supabase.co";
+const SUPABASE_KEY = "sb_publishable_NGXi9ouXa2_lzt6aVookvw_RJFAZnkb";
 
 const form = document.getElementById("bookingForm");
 const message = document.getElementById("message");
@@ -348,47 +314,136 @@ const dateInput = document.getElementById("date");
 const timeInput = document.getElementById("time");
 const serviceInput = document.getElementById("service");
 const submitButton = document.getElementById("submitButton");
+const calendarMonth = document.getElementById("calendarMonth");
+const calendarDays = document.getElementById("calendarDays");
+const dateSelectionInfo = document.getElementById("dateSelectionInfo");
+const timeSelectionInfo = document.getElementById("timeSelectionInfo");
+const timeSlots = document.getElementById("timeSlots");
+const prevMonthButton = document.getElementById("prevMonth");
+const nextMonthButton = document.getElementById("nextMonth");
 
-const durations = {
-  "1": 15,
-  "2": 25,
-  "3": 35,
-  "4": 30
-};
+const durations = {"1":15,"2":25,"3":35,"4":30};
+const today = new Date();
+let calendarView = new Date(today.getFullYear(),today.getMonth(),1);
 
-// Empêche de choisir une date passée.
 function localDateString(date) {
   const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth()+1).padStart(2,"0");
+  const day = String(date.getDate()).padStart(2,"0");
   return `${year}-${month}-${day}`;
 }
 
-dateInput.min = localDateString(new Date());
+function renderCalendar() {
+  calendarMonth.textContent = calendarView.toLocaleDateString("fr-BE",{
+    month:"long",year:"numeric"
+  });
+  calendarDays.innerHTML = "";
 
-// Vérifie les horaires de fermeture selon le service choisi.
-function updateTimeLimit() {
+  const firstDay = new Date(calendarView.getFullYear(),calendarView.getMonth(),1);
+  const offset = (firstDay.getDay()+6)%7;
+  const daysInMonth = new Date(calendarView.getFullYear(),calendarView.getMonth()+1,0).getDate();
+
+  for(let i=0;i<offset;i++){
+    const blank = document.createElement("span");
+    blank.className = "calendar-day empty";
+    calendarDays.appendChild(blank);
+  }
+
+  for(let day=1;day<=daysInMonth;day++){
+    const date = new Date(calendarView.getFullYear(),calendarView.getMonth(),day);
+    const dateValue = localDateString(date);
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "calendar-day";
+    button.textContent = day;
+
+    button.disabled = dateValue < localDateString(today) || date.getDay() === 0;
+
+    if(dateValue === dateInput.value) button.classList.add("selected");
+
+    button.addEventListener("click",()=>{
+      dateInput.value = dateValue;
+      timeInput.value = "";
+      dateSelectionInfo.textContent = `Date choisie : ${date.toLocaleDateString("fr-BE",{
+        weekday:"long",day:"numeric",month:"long",year:"numeric"
+      })}`;
+      renderCalendar();
+      renderTimeSlots();
+    });
+    calendarDays.appendChild(button);
+  }
+
+  prevMonthButton.disabled =
+    calendarView.getFullYear() === today.getFullYear() &&
+    calendarView.getMonth() <= today.getMonth();
+}
+
+function renderTimeSlots() {
+  timeSlots.innerHTML = "";
   const duration = durations[serviceInput.value];
 
-  if (!duration) {
-    timeInput.max = "17:45";
+  if(!dateInput.value){
+    timeSelectionInfo.textContent = "Choisissez d’abord une date dans le calendrier.";
+    return;
+  }
+  if(!duration){
+    timeSelectionInfo.textContent = "Choisissez d’abord le service souhaité.";
     return;
   }
 
-  const latestMinutes = 18 * 60 - duration;
-  const hours = String(Math.floor(latestMinutes / 60)).padStart(2, "0");
-  const minutes = String(latestMinutes % 60).padStart(2, "0");
+  timeSelectionInfo.textContent = "Appuyez sur l’heure qui vous convient.";
 
-  timeInput.max = `${hours}:${minutes}`;
+  const isToday = dateInput.value === localDateString(new Date());
+
+  for(let minutes=10*60;minutes+duration<=18*60;minutes+=15){
+    const hour = String(Math.floor(minutes/60)).padStart(2,"0");
+    const minute = String(minutes%60).padStart(2,"0");
+    const value = `${hour}:${minute}`;
+    const slotDate = new Date(`${dateInput.value}T${value}:00`);
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "time-slot";
+    button.textContent = value;
+    button.disabled = isToday && slotDate <= new Date();
+
+    if(timeInput.value === value) button.classList.add("selected");
+
+    button.addEventListener("click",()=>{
+      timeInput.value = value;
+      renderTimeSlots();
+    });
+    timeSlots.appendChild(button);
+  }
+
+  if(!timeSlots.children.length ||
+     [...timeSlots.children].every(slot=>slot.disabled)){
+    timeSelectionInfo.textContent = "Aucune heure disponible pour cette date. Choisissez un autre jour.";
+  }
 }
 
-serviceInput.addEventListener("change", updateTimeLimit);
+prevMonthButton.addEventListener("click",()=>{
+  calendarView = new Date(calendarView.getFullYear(),calendarView.getMonth()-1,1);
+  renderCalendar();
+});
 
-form.addEventListener("submit", async function(event) {
+nextMonthButton.addEventListener("click",()=>{
+  calendarView = new Date(calendarView.getFullYear(),calendarView.getMonth()+1,1);
+  renderCalendar();
+});
+
+serviceInput.addEventListener("change",()=>{
+  timeInput.value = "";
+  renderTimeSlots();
+});
+
+renderCalendar();
+renderTimeSlots();
+
+form.addEventListener("submit",async function(event){
   event.preventDefault();
 
-  if (submitButton.disabled) return;
-
+  if(submitButton.disabled) return;
   message.textContent = "";
 
   const serviceId = serviceInput.value;
@@ -396,62 +451,47 @@ form.addEventListener("submit", async function(event) {
   const time = timeInput.value;
   const duration = durations[serviceId];
 
-  if (!duration || !date || !time) {
-    message.textContent =
-      "Veuillez compléter le service, la date et l'heure.";
+  if(!duration || !date || !time){
+    message.textContent = "Veuillez choisir un service, une date et une heure dans les sélections.";
     return;
   }
 
-  // Construit la date locale choisie par le client.
   const startsAt = new Date(`${date}T${time}:00`);
 
-  if (Number.isNaN(startsAt.getTime())) {
+  if(Number.isNaN(startsAt.getTime())){
     message.textContent = "La date ou l'heure est invalide.";
     return;
   }
 
-  if (startsAt.getTime() <= Date.now()) {
-    message.textContent =
-      "Choisissez une date et une heure dans le futur.";
+  if(startsAt.getTime() <= Date.now()){
+    message.textContent = "Choisissez une date et une heure dans le futur.";
     return;
   }
 
-  if (startsAt.getDay() === 0) {
-    message.textContent =
-      "Le salon est fermé le dimanche. Choisissez un autre jour.";
+  if(startsAt.getDay() === 0){
+    message.textContent = "Le salon est fermé le dimanche. Choisissez un autre jour.";
     return;
   }
 
-  const startMinutes = startsAt.getHours() * 60 +
-                       startsAt.getMinutes();
-
+  const startMinutes = startsAt.getHours()*60 + startsAt.getMinutes();
   const endMinutes = startMinutes + duration;
 
-  if (startMinutes < 10 * 60 || endMinutes > 18 * 60) {
-    message.textContent =
-      "Choisissez une heure permettant de terminer avant 18 h.";
+  if(startMinutes < 10*60 || endMinutes > 18*60){
+    message.textContent = "Choisissez une heure permettant de terminer avant 18 h.";
     return;
   }
 
-  if (startsAt.getMinutes() % 5 !== 0) {
-    message.textContent =
-      "Choisissez une heure par tranche de 5 minutes.";
-    return;
-  }
-
-  const endsAt = new Date(
-    startsAt.getTime() + duration * 60 * 1000
-  );
+  const endsAt = new Date(startsAt.getTime()+duration*60*1000);
 
   const booking = {
-    service_id: Number(serviceId),
-    starts_at: startsAt.toISOString(),
-    ends_at: endsAt.toISOString(),
-    customer_name: document.getElementById("name").value.trim(),
-    customer_email: document.getElementById("email").value.trim(),
-    customer_phone: document.getElementById("phone").value.trim(),
-    status: "pending",
-    notes: document.getElementById("details").value.trim()
+    service_id:Number(serviceId),
+    starts_at:startsAt.toISOString(),
+    ends_at:endsAt.toISOString(),
+    customer_name:document.getElementById("name").value.trim(),
+    customer_email:document.getElementById("email").value.trim(),
+    customer_phone:document.getElementById("phone").value.trim(),
+    status:"pending",
+    notes:document.getElementById("details").value.trim()
   };
 
   submitButton.disabled = true;
@@ -459,46 +499,41 @@ form.addEventListener("submit", async function(event) {
   message.textContent = "Envoi de votre demande...";
 
   try {
-    const response = await fetch(
-      `${SUPABASE_URL}/rest/v1/bookings`,
-      {
-        method: "POST",
-        headers: {
-          "apikey": SUPABASE_KEY,
-          "Authorization": `Bearer ${SUPABASE_KEY}`,
-          "Content-Type": "application/json",
-          "Prefer": "return=minimal"
-        },
-        body: JSON.stringify(booking)
-      }
-    );
+    const response = await fetch(`${SUPABASE_URL}/rest/v1/bookings`,{
+      method:"POST",
+      headers:{
+        "apikey":SUPABASE_KEY,
+        "Authorization":`Bearer ${SUPABASE_KEY}`,
+        "Content-Type":"application/json",
+        "Prefer":"return=minimal"
+      },
+      body:JSON.stringify(booking)
+    });
 
-    if (!response.ok) {
+    if(!response.ok){
       const errorText = await response.text();
-      console.error("Erreur Supabase :", response.status, errorText);
-
-      message.textContent =
-        "Impossible d'envoyer la demande. Vérifiez la configuration Supabase ou réessayez plus tard.";
+      console.error("Erreur Supabase :",response.status,errorText);
+      message.textContent = "Impossible d'envoyer la demande. Vérifiez la configuration Supabase ou réessayez plus tard.";
       return;
     }
 
-    message.textContent =
-      "Votre demande a bien été envoyée ! Elle est en attente de confirmation.";
+    message.textContent = "Votre demande a bien été envoyée à ON EST BIEN. Nous vous confirmerons votre rendez-vous.";
 
     form.reset();
-    dateInput.min = localDateString(new Date());
-    updateTimeLimit();
+    calendarView = new Date(new Date().getFullYear(),new Date().getMonth(),1);
+    dateSelectionInfo.textContent = "Choisissez une date dans le calendrier.";
+    timeSelectionInfo.textContent = "Choisissez d’abord une date et un service.";
+    renderCalendar();
+    renderTimeSlots();
 
-  } catch (error) {
-    console.error("Erreur de connexion :", error);
-    message.textContent =
-      "Erreur de connexion. Vérifiez votre connexion Internet puis réessayez.";
+  } catch(error) {
+    console.error("Erreur de connexion :",error);
+    message.textContent = "Erreur de connexion. Vérifiez votre connexion Internet puis réessayez.";
   } finally {
     submitButton.disabled = false;
     submitButton.textContent = "Demander un rendez-vous";
   }
 });
 </script>
-
 </body>
 </html>
