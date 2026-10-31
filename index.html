@@ -15,39 +15,29 @@
   --text:#f7f4ee;
   --muted:#aaa49a;
   --line:rgba(201,169,110,.24);
-  --radius:18px;
-  --shadow:0 22px 60px rgba(0,0,0,.38);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;background:var(--bg);color:var(--text);
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
-  line-height:1.65
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.6
 }
 header{
-  position:sticky;top:0;z-index:10;display:flex;
-  justify-content:space-between;align-items:center;
-  padding:17px 7%;background:rgba(11,11,11,.9);
+  position:sticky;top:0;z-index:10;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:17px 7%;background:rgba(11,11,11,.92);
   backdrop-filter:blur(14px);border-bottom:1px solid var(--line)
 }
 .logo{font-size:21px;font-weight:850;letter-spacing:3px;color:var(--gold)}
 nav{display:flex;gap:28px}
 nav a{color:#eee9df;text-decoration:none;font-size:14px;font-weight:600}
-nav a:hover{color:var(--gold-light)}
+nav a:hover{color:var(--gold)}
 .hero{
-  position:relative;overflow:hidden;text-align:center;
-  padding:clamp(90px,13vw,155px) 7% 125px;
+  text-align:center;padding:120px 7% 125px;
   background:radial-gradient(ellipse at 50% 5%,rgba(166,126,61,.28),transparent 55%),
-  linear-gradient(180deg,#17130e 0%,#0b0b0b 100%)
+  linear-gradient(180deg,#17130e,#0b0b0b)
 }
-.hero::before,.hero::after{
-  content:"";position:absolute;width:300px;height:300px;
-  border:1px solid rgba(201,169,110,.12);border-radius:50%;
-  pointer-events:none
-}
-.hero::before{top:-190px;left:-120px}
-.hero::after{bottom:-220px;right:-100px;width:420px;height:420px}
 .hero>p,.heading>p{
   color:var(--gold);letter-spacing:3px;text-transform:uppercase;
   font-size:11px;font-weight:800
@@ -60,124 +50,165 @@ h1 span,h2 span{color:var(--gold)}
   background:linear-gradient(135deg,#e1c58e,#b58e4f);
   color:#17130c;padding:14px 26px;text-decoration:none;
   border:0;border-radius:999px;font-weight:800;cursor:pointer;
-  box-shadow:0 10px 28px rgba(201,169,110,.18);
-  transition:transform .2s ease,filter .2s ease
+  transition:.2s
 }
 .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
 .btn:disabled{opacity:.65;cursor:wait;transform:none}
-section{padding:82px 8%;scroll-margin-top:85px}
-.heading{text-align:center;margin:0 auto 42px;max-width:680px}
+section{padding:80px 8%;scroll-margin-top:85px}
+.heading{text-align:center;margin:0 auto 40px;max-width:680px}
 .heading h2{margin:8px 0 10px}
-.heading>p{margin-bottom:7px}
-h2{font-size:clamp(29px,4vw,40px);line-height:1.2;letter-spacing:-.7px}
+h2{font-size:clamp(29px,4vw,40px);line-height:1.2}
 .services{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;max-width:1100px;margin:0 auto
+  gap:20px;max-width:1100px;margin:auto
 }
 .service{
-  padding:30px 26px;min-height:205px;
+  padding:28px 25px;min-height:190px;
   background:linear-gradient(145deg,#1d1c19,#121212);
-  border:1px solid var(--line);border-radius:var(--radius);
-  box-shadow:0 12px 35px rgba(0,0,0,.16);
-  transition:transform .25s ease,border-color .25s ease
+  border:1px solid var(--line);border-radius:18px;
+  transition:.25s
 }
-.service:hover{transform:translateY(-5px);border-color:rgba(201,169,110,.65)}
+.service:hover{transform:translateY(-5px);border-color:var(--gold)}
 .service h3{color:var(--gold-light);font-size:19px;margin:0 0 10px}
 .service p{color:var(--muted);margin:8px 0}
 .service p:last-child{color:var(--text);font-weight:800}
 #reservation{background:linear-gradient(180deg,#101010,#14120f)}
 .booking{
-  max-width:700px;margin:auto;padding:clamp(24px,5vw,42px);
+  max-width:760px;margin:auto;padding:32px;
   background:linear-gradient(145deg,#1c1b19,#121212);
-  border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);
-  display:grid;grid-template-columns:1fr 1fr;column-gap:18px
+  border:1px solid var(--line);border-radius:22px;
+  display:grid;grid-template-columns:1fr 1fr;gap:0 18px;
+  box-shadow:0 22px 60px rgba(0,0,0,.35)
 }
-.booking label{display:block;margin:13px 0 7px;color:#e7dfd1;font-size:13px;font-weight:700}
+.booking label{
+  display:block;margin:12px 0 7px;color:#e7dfd1;
+  font-size:13px;font-weight:700
+}
 .booking input,.booking select,.booking textarea{
-  width:100%;padding:14px 15px;background:#0d0d0d;color:white;
-  border:1px solid #39342b;border-radius:11px;font:inherit;outline:none
+  width:100%;padding:13px 14px;background:#0d0d0d;color:white;
+  border:1px solid #39342b;border-radius:10px;
+  font:inherit;outline:none
 }
 .booking input:focus,.booking select:focus,.booking textarea:focus{
   border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,110,.12)
 }
-.booking textarea{resize:vertical;min-height:90px}
+.booking textarea{resize:vertical;min-height:85px}
 .booking label[for="details"],.booking #details,
-.booking button,.booking #message{grid-column:1/-1}
-.booking button{width:100%;margin-top:22px;min-height:50px}
-#message{color:var(--gold-light);overflow-wrap:anywhere;text-align:center;margin-bottom:0}
-.calendar-box,.time-box{
-  grid-column:1/-1;padding:17px;margin-top:2px;
-  background:#0d0d0d;border:1px solid #39342b;border-radius:14px
+.booking #message,.booking #submitButton{grid-column:1/-1}
+.booking #submitButton{width:100%;margin-top:20px;min-height:48px}
+#message{color:var(--gold-light);text-align:center;overflow-wrap:anywhere}
+
+/* Calendrier et heures compacts */
+.booking-choice{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:15px;
 }
-.calendar-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-.calendar-top strong{color:var(--gold-light);text-transform:capitalize}
+.choice-field{min-width:0}
+.choice-field>label{margin:0 0 8px}
+.calendar-box,.time-box{
+  background:#0d0d0d;
+  border:1px solid #39342b;
+  border-radius:13px;
+  padding:13px;
+  min-width:0
+}
+.calendar-top{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:12px
+}
+.calendar-top strong{
+  color:var(--gold-light);font-size:13px;text-transform:capitalize
+}
 .calendar-nav{
-  width:38px;height:38px;border:1px solid var(--line);border-radius:50%;
-  background:#1c1b19;color:var(--gold-light);font-size:25px;cursor:pointer
+  width:29px;height:29px;border:1px solid var(--line);
+  border-radius:8px;background:#1c1b19;color:var(--gold-light);
+  font-size:20px;line-height:1;cursor:pointer
 }
 .calendar-nav:disabled{opacity:.3;cursor:not-allowed}
 .calendar-weekdays,.calendar-days{
   display:grid;grid-template-columns:repeat(7,minmax(0,1fr));
-  gap:7px;text-align:center
+  gap:4px;text-align:center
 }
-.calendar-weekdays span{color:var(--muted);font-size:12px;font-weight:700;padding-bottom:7px}
+.calendar-weekdays span{
+  color:var(--muted);font-size:10px;font-weight:700;padding-bottom:5px
+}
 .calendar-day{
-  aspect-ratio:1;border:1px solid transparent;border-radius:10px;
-  background:#1b1a18;color:var(--text);font:inherit;cursor:pointer
+  width:100%;height:32px;padding:0;
+  border:1px solid transparent;border-radius:7px;
+  background:#1b1a18;color:var(--text);
+  font:inherit;font-size:11px;cursor:pointer
 }
 .calendar-day:hover:not(:disabled),.calendar-day.selected{
   background:var(--gold);color:#17130c;font-weight:900
 }
-.calendar-day:disabled{opacity:.22;cursor:not-allowed}
+.calendar-day:disabled{opacity:.2;cursor:not-allowed}
 .calendar-day.empty{visibility:hidden}
-.selection-info{color:var(--muted);font-size:13px;margin:13px 0 0}
-.time-slots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.selection-info{
+  color:var(--muted);font-size:11px;margin:10px 0 0;
+  min-height:18px
+}
+.time-box{min-height:220px}
+.time-slots{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:7px;max-height:205px;overflow-y:auto;
+  padding:2px 3px 2px 0
+}
 .time-slot{
-  padding:11px 5px;border:1px solid #39342b;border-radius:10px;
-  background:#1b1a18;color:var(--text);font:inherit;font-size:14px;cursor:pointer
+  padding:8px 3px;border:1px solid #39342b;
+  border-radius:8px;background:#1b1a18;color:var(--text);
+  font:inherit;font-size:11px;cursor:pointer
 }
 .time-slot:hover:not(:disabled),.time-slot.selected{
-  background:var(--gold);color:#17130c;border-color:var(--gold);font-weight:900
+  background:var(--gold);color:#17130c;
+  border-color:var(--gold);font-weight:900
 }
-.time-slot:disabled{opacity:.25;cursor:not-allowed}
-.booking .calendar-box,.booking .time-box{width:100%}
-@media(max-width:420px){
-  .time-slots{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .calendar-weekdays,.calendar-days{gap:4px}
-  .calendar-day{border-radius:7px}
-}
+.time-slot:disabled{opacity:.22;cursor:not-allowed}
+
+/* Les boutons du calendrier ne doivent pas prendre toute la largeur */
+.booking-choice button{width:auto;margin:0;min-height:0}
+.booking-choice .calendar-nav{width:29px;height:29px}
+.booking-choice .calendar-day{height:32px}
+.booking-choice .time-slot{min-height:0}
+
 footer{
   text-align:center;padding:28px 20px;color:#8e887e;
   border-top:1px solid var(--line);font-size:13px
 }
 .whatsapp{
-  display:flex;width:fit-content;max-width:90%;margin:34px auto;
-  padding:14px 24px;background:#183d2a;color:#eaffef;
+  display:flex;width:fit-content;max-width:90%;margin:30px auto;
+  padding:13px 23px;background:#183d2a;color:#eaffef;
   text-decoration:none;font-weight:800;border:1px solid #2d6847;
-  border-radius:999px;text-align:center
+  border-radius:999px
 }
-.whatsapp:hover{transform:translateY(-2px);background:#205437}
 .hours{
-  max-width:650px;margin:55px auto 75px;padding:30px 22px;
+  max-width:650px;margin:45px auto 70px;padding:28px 22px;
   text-align:center;background:var(--surface);
-  border:1px solid var(--line);border-radius:var(--radius)
+  border:1px solid var(--line);border-radius:18px
 }
 .hours h2{color:var(--gold);margin-top:0}
 .hours p{color:#d2ccc1;margin:5px}
+
 @media(max-width:650px){
   header{padding:15px 5%;flex-direction:column;gap:12px}
   nav{gap:18px}
   nav a{font-size:13px}
-  section{padding:62px 6%}
-  .hero{padding:88px 6% 100px}
-  .booking{grid-template-columns:1fr;padding:23px 19px}
+  section{padding:60px 6%}
+  .hero{padding:85px 6% 95px}
+  .booking{grid-template-columns:1fr;padding:22px 17px}
+  .booking-choice{grid-template-columns:1fr;gap:13px}
+  .time-box{min-height:0}
+  .time-slots{max-height:180px}
   .booking label[for="details"],.booking #details,
-  .booking button,.booking #message{grid-column:auto}
+  .booking #message,.booking #submitButton{grid-column:1}
 }
 </style>
 </head>
 
 <body>
+
 <header>
   <div class="logo">ON EST BIEN.</div>
   <nav>
@@ -203,26 +234,27 @@ footer{
     <h2>Nos <span>services</span></h2>
     Choisissez le service qui vous convient.
   </div>
+
   <div class="services">
     <article class="service">
       <h3>Coupe homme</h3>
       <p>Une coupe soignée et adaptée à ton style.</p>
-      <p><strong>30 minutes · 20 €</strong></p>
+      <p>30 minutes · 20 €</p>
     </article>
     <article class="service">
       <h3>Dégradé</h3>
       <p>Un dégradé précis pour un look impeccable.</p>
-      <p><strong>35 minutes · 15 €</strong></p>
+      <p>35 minutes · 15 €</p>
     </article>
     <article class="service">
       <h3>Taille de barbe</h3>
       <p>Une barbe entretenue avec précision.</p>
-      <p><strong>15 minutes · 10 €</strong></p>
+      <p>15 minutes · 10 €</p>
     </article>
     <article class="service">
       <h3>Coupe enfant</h3>
       <p>Une coupe adaptée aux plus jeunes.</p>
-      <p><strong>25 minutes · 15 €</strong></p>
+      <p>25 minutes · 15 €</p>
     </article>
   </div>
 </section>
@@ -234,6 +266,7 @@ footer{
   </div>
 
   <form class="booking" id="bookingForm">
+
     <label for="name">Nom complet</label>
     <input id="name" name="name" autocomplete="name" required>
 
@@ -252,28 +285,36 @@ footer{
       <option value="2">Coupe enfant — 15 €</option>
     </select>
 
-    <label>Date souhaitée</label>
-    <div class="calendar-box">
-      <div class="calendar-top">
-        <button type="button" class="calendar-nav" id="prevMonth" aria-label="Mois précédent">‹</button>
-        <strong id="calendarMonth"></strong>
-        <button type="button" class="calendar-nav" id="nextMonth" aria-label="Mois suivant">›</button>
+    <div class="booking-choice">
+      <div class="choice-field">
+        <label>Date du rendez-vous</label>
+        <div class="calendar-box">
+          <div class="calendar-top">
+            <button type="button" class="calendar-nav" id="prevMonth" aria-label="Mois précédent">‹</button>
+            <strong id="calendarMonth"></strong>
+            <button type="button" class="calendar-nav" id="nextMonth" aria-label="Mois suivant">›</button>
+          </div>
+          <div class="calendar-weekdays">
+            <span>L</span><span>M</span><span>M</span>
+            <span>J</span><span>V</span><span>S</span><span>D</span>
+          </div>
+          <div class="calendar-days" id="calendarDays"></div>
+          <p class="selection-info" id="dateSelectionInfo">Choisissez une date.</p>
+        </div>
+        <input id="date" name="date" type="hidden">
       </div>
-      <div class="calendar-weekdays">
-        <span>Lun</span><span>Mar</span><span>Mer</span>
-        <span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span>
-      </div>
-      <div class="calendar-days" id="calendarDays"></div>
-      <p class="selection-info" id="dateSelectionInfo">Choisissez une date dans le calendrier.</p>
-    </div>
-    <input id="date" name="date" type="hidden">
 
-    <label>Heure du rendez-vous</label>
-    <div class="time-box">
-      <p class="selection-info" id="timeSelectionInfo">Choisissez d’abord un service et une date.</p>
-      <div class="time-slots" id="timeSlots"></div>
+      <div class="choice-field">
+        <label>Heure du rendez-vous</label>
+        <div class="time-box">
+          <p class="selection-info" id="timeSelectionInfo">
+            Choisissez une date et un service.
+          </p>
+          <div class="time-slots" id="timeSlots"></div>
+        </div>
+        <input id="time" name="time" type="hidden">
+      </div>
     </div>
-    <input id="time" name="time" type="hidden">
 
     <label for="details">Informations complémentaires</label>
     <textarea id="details" name="details" rows="3"></textarea>
@@ -281,6 +322,7 @@ footer{
     <button class="btn" id="submitButton" type="submit">
       Demander un rendez-vous
     </button>
+
     <p id="message" role="status" aria-live="polite"></p>
   </form>
 </section>
@@ -290,7 +332,10 @@ footer{
   © <span id="year"></span> ON EST BIEN. Tous droits réservés.
 </footer>
 
-<a class="whatsapp" href="https://wa.me/32471578127" target="_blank" rel="noopener noreferrer">
+<a class="whatsapp"
+   href="https://wa.me/32471578127"
+   target="_blank"
+   rel="noopener noreferrer">
   Contacter Hassu sur WhatsApp
 </a>
 
@@ -337,11 +382,16 @@ function renderCalendar() {
   calendarMonth.textContent = calendarView.toLocaleDateString("fr-BE",{
     month:"long",year:"numeric"
   });
+
   calendarDays.innerHTML = "";
 
-  const firstDay = new Date(calendarView.getFullYear(),calendarView.getMonth(),1);
+  const firstDay = new Date(
+    calendarView.getFullYear(),calendarView.getMonth(),1
+  );
   const offset = (firstDay.getDay()+6)%7;
-  const daysInMonth = new Date(calendarView.getFullYear(),calendarView.getMonth()+1,0).getDate();
+  const daysInMonth = new Date(
+    calendarView.getFullYear(),calendarView.getMonth()+1,0
+  ).getDate();
 
   for(let i=0;i<offset;i++){
     const blank = document.createElement("span");
@@ -350,26 +400,36 @@ function renderCalendar() {
   }
 
   for(let day=1;day<=daysInMonth;day++){
-    const date = new Date(calendarView.getFullYear(),calendarView.getMonth(),day);
+    const date = new Date(
+      calendarView.getFullYear(),calendarView.getMonth(),day
+    );
     const dateValue = localDateString(date);
     const button = document.createElement("button");
+
     button.type = "button";
     button.className = "calendar-day";
     button.textContent = day;
 
-    button.disabled = dateValue < localDateString(today) || date.getDay() === 0;
+    button.disabled =
+      dateValue < localDateString(today) || date.getDay() === 0;
 
-    if(dateValue === dateInput.value) button.classList.add("selected");
+    if(dateValue === dateInput.value){
+      button.classList.add("selected");
+    }
 
     button.addEventListener("click",()=>{
       dateInput.value = dateValue;
       timeInput.value = "";
-      dateSelectionInfo.textContent = `Date choisie : ${date.toLocaleDateString("fr-BE",{
-        weekday:"long",day:"numeric",month:"long",year:"numeric"
-      })}`;
+
+      dateSelectionInfo.textContent =
+        "Date : "+date.toLocaleDateString("fr-BE",{
+          weekday:"short",day:"numeric",month:"short",year:"numeric"
+        });
+
       renderCalendar();
       renderTimeSlots();
     });
+
     calendarDays.appendChild(button);
   }
 
@@ -380,18 +440,20 @@ function renderCalendar() {
 
 function renderTimeSlots() {
   timeSlots.innerHTML = "";
+
   const duration = durations[serviceInput.value];
 
   if(!dateInput.value){
-    timeSelectionInfo.textContent = "Choisissez d’abord une date dans le calendrier.";
-    return;
-  }
-  if(!duration){
-    timeSelectionInfo.textContent = "Choisissez d’abord le service souhaité.";
+    timeSelectionInfo.textContent = "Choisissez d’abord une date.";
     return;
   }
 
-  timeSelectionInfo.textContent = "Appuyez sur l’heure qui vous convient.";
+  if(!duration){
+    timeSelectionInfo.textContent = "Choisissez d’abord un service.";
+    return;
+  }
+
+  timeSelectionInfo.textContent = "Choisissez votre heure.";
 
   const isToday = dateInput.value === localDateString(new Date());
 
@@ -405,30 +467,38 @@ function renderTimeSlots() {
     button.type = "button";
     button.className = "time-slot";
     button.textContent = value;
+
     button.disabled = isToday && slotDate <= new Date();
 
-    if(timeInput.value === value) button.classList.add("selected");
+    if(timeInput.value === value){
+      button.classList.add("selected");
+    }
 
     button.addEventListener("click",()=>{
       timeInput.value = value;
       renderTimeSlots();
     });
+
     timeSlots.appendChild(button);
   }
 
   if(!timeSlots.children.length ||
      [...timeSlots.children].every(slot=>slot.disabled)){
-    timeSelectionInfo.textContent = "Aucune heure disponible pour cette date. Choisissez un autre jour.";
+    timeSelectionInfo.textContent = "Aucune heure disponible.";
   }
 }
 
 prevMonthButton.addEventListener("click",()=>{
-  calendarView = new Date(calendarView.getFullYear(),calendarView.getMonth()-1,1);
+  calendarView = new Date(
+    calendarView.getFullYear(),calendarView.getMonth()-1,1
+  );
   renderCalendar();
 });
 
 nextMonthButton.addEventListener("click",()=>{
-  calendarView = new Date(calendarView.getFullYear(),calendarView.getMonth()+1,1);
+  calendarView = new Date(
+    calendarView.getFullYear(),calendarView.getMonth()+1,1
+  );
   renderCalendar();
 });
 
@@ -444,6 +514,7 @@ form.addEventListener("submit",async function(event){
   event.preventDefault();
 
   if(submitButton.disabled) return;
+
   message.textContent = "";
 
   const serviceId = serviceInput.value;
@@ -452,7 +523,8 @@ form.addEventListener("submit",async function(event){
   const duration = durations[serviceId];
 
   if(!duration || !date || !time){
-    message.textContent = "Veuillez choisir un service, une date et une heure dans les sélections.";
+    message.textContent =
+      "Veuillez choisir un service, une date et une heure.";
     return;
   }
 
@@ -469,19 +541,24 @@ form.addEventListener("submit",async function(event){
   }
 
   if(startsAt.getDay() === 0){
-    message.textContent = "Le salon est fermé le dimanche. Choisissez un autre jour.";
+    message.textContent = "Le salon est fermé le dimanche.";
     return;
   }
 
-  const startMinutes = startsAt.getHours()*60 + startsAt.getMinutes();
+  const startMinutes =
+    startsAt.getHours()*60 + startsAt.getMinutes();
+
   const endMinutes = startMinutes + duration;
 
   if(startMinutes < 10*60 || endMinutes > 18*60){
-    message.textContent = "Choisissez une heure permettant de terminer avant 18 h.";
+    message.textContent =
+      "Le rendez-vous doit se terminer avant 18 h.";
     return;
   }
 
-  const endsAt = new Date(startsAt.getTime()+duration*60*1000);
+  const endsAt = new Date(
+    startsAt.getTime()+duration*60*1000
+  );
 
   const booking = {
     service_id:Number(serviceId),
@@ -499,41 +576,53 @@ form.addEventListener("submit",async function(event){
   message.textContent = "Envoi de votre demande...";
 
   try {
-    const response = await fetch(`${SUPABASE_URL}/rest/v1/bookings`,{
-      method:"POST",
-      headers:{
-        "apikey":SUPABASE_KEY,
-        "Authorization":`Bearer ${SUPABASE_KEY}`,
-        "Content-Type":"application/json",
-        "Prefer":"return=minimal"
-      },
-      body:JSON.stringify(booking)
-    });
+    const response = await fetch(
+      `${SUPABASE_URL}/rest/v1/bookings`,
+      {
+        method:"POST",
+        headers:{
+          "apikey":SUPABASE_KEY,
+          "Authorization":`Bearer ${SUPABASE_KEY}`,
+          "Content-Type":"application/json",
+          "Prefer":"return=minimal"
+        },
+        body:JSON.stringify(booking)
+      }
+    );
 
     if(!response.ok){
       const errorText = await response.text();
       console.error("Erreur Supabase :",response.status,errorText);
-      message.textContent = "Impossible d'envoyer la demande. Vérifiez la configuration Supabase ou réessayez plus tard.";
+      message.textContent =
+        "Impossible d'envoyer la demande. Réessayez plus tard.";
       return;
     }
 
-    message.textContent = "Votre demande a bien été envoyée à ON EST BIEN. Nous vous confirmerons votre rendez-vous.";
+    message.textContent =
+      "Votre demande a bien été envoyée à ON EST BIEN. Nous vous confirmerons votre rendez-vous.";
 
     form.reset();
-    calendarView = new Date(new Date().getFullYear(),new Date().getMonth(),1);
-    dateSelectionInfo.textContent = "Choisissez une date dans le calendrier.";
-    timeSelectionInfo.textContent = "Choisissez d’abord une date et un service.";
+
+    calendarView = new Date(
+      new Date().getFullYear(),new Date().getMonth(),1
+    );
+
+    dateSelectionInfo.textContent = "Choisissez une date.";
+    timeSelectionInfo.textContent = "Choisissez une date et un service.";
+
     renderCalendar();
     renderTimeSlots();
 
   } catch(error) {
     console.error("Erreur de connexion :",error);
-    message.textContent = "Erreur de connexion. Vérifiez votre connexion Internet puis réessayez.";
+    message.textContent =
+      "Erreur de connexion. Vérifiez votre Internet et réessayez.";
   } finally {
     submitButton.disabled = false;
     submitButton.textContent = "Demander un rendez-vous";
   }
 });
 </script>
+
 </body>
 </html>
